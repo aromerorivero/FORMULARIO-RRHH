@@ -2,17 +2,18 @@ interface empleado {
     name: string
     surname: string
     email: string
-    birthDate: Date
+    birthDate: string
+}
 
 class empleadoventas implements empleado {
     name: string;
     surname: string;
     email: string;
-    birthDate: Date;
+    birthDate: string;
     sdUnit: string;
     area: string;
 
-    constructor(name: string, surname: string, email: string, birthDate: Date, sdUnit: string, area: string) {
+    constructor(name: string, surname: string, email: string, birthDate: string, sdUnit: string, area: string) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -41,7 +42,7 @@ class empleadoventas implements empleado {
     getbirthdate() {
         return this.birthDate;
     }
-    setbirthdate(birthDate: Date) {
+    setbirthdate(birthDate: string) {
         this.birthDate = birthDate;
     }
     getsdUnit() {
@@ -58,7 +59,7 @@ class empleadoventas implements empleado {
     }
 }
 
-function addEmployee() :void {
+function addEmployee(): void {
 
     let employeeName = (<HTMLInputElement>document.getElementById('name')).value;
     let surname = (<HTMLInputElement>document.getElementById('surname')).value;
