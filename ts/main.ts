@@ -1,20 +1,20 @@
 interface empleado {
-    name: string
+    employeeName: string
     surname: string
     email: string
-    birthDate: string
+    birthDate: Date
 }
 
 class empleadoventas implements empleado {
-    name: string;
+    employeeName: string;
     surname: string;
     email: string;
-    birthDate: string;
+    birthDate: Date;
     sdUnit: string;
     area: string;
 
-    constructor(name: string, surname: string, email: string, birthDate: string, sdUnit: string, area: string) {
-        this.name = name;
+    constructor(employeeName: string, surname: string, email: string, birthDate: Date, sdUnit: string, area: string) {
+        this.employeeName = employeeName;
         this.surname = surname;
         this.email = email;
         this.birthDate = birthDate;
@@ -22,10 +22,10 @@ class empleadoventas implements empleado {
         this.area = area;
     }
     getname() {
-        return this.name;
+        return this.employeeName;
     }
-    setname(name: string) {
-        this.name = name;
+    setname(employeeName: string) {
+        this.employeeName = employeeName;
     }
     getsurname() {
         return this.surname;
@@ -42,7 +42,7 @@ class empleadoventas implements empleado {
     getbirthdate() {
         return this.birthDate;
     }
-    setbirthdate(birthDate: string) {
+    setbirthdate(birthDate: Date) {
         this.birthDate = birthDate;
     }
     getsdUnit() {
@@ -51,25 +51,28 @@ class empleadoventas implements empleado {
     setsdUnit(sdUnit: string) {
         this.sdUnit = sdUnit;
     }
-    getarea() {
+    getarea(): string {
         return this.sdUnit;
     }
     setarea(area: string) {
         this.area = area;
     }
 }
-
 function addEmployee(): void {
 
     let employeeName = (<HTMLInputElement>document.getElementById('name')).value;
     let surname = (<HTMLInputElement>document.getElementById('surname')).value;
     let email = (<HTMLInputElement>document.getElementById('email')).value;
-    let birthDate =
-        (<HTMLInputElement>document.getElementById('birthDate')).value;
+    let birthDate = (<HTMLInputElement>document.getElementById('birthDate')).value;
     let sdUnit = (<HTMLInputElement>document.getElementById('sdUnit')).value;
     let area = (<HTMLInputElement>document.getElementById('area')).value;
 
-    let empleado1 = new empleadoventas(employeeName, surname, email, birthDate, sdUnit, area);
+    let empleado1 = new empleadoventas(employeeName, surname, email, new Date(birthDate), sdUnit, area);
 
-    console.log(empleado1)
+    console.log("nombre",empleado1.employeeName )
+    console.log("apellido",empleado1.surname )
+    console.log("email",empleado1.email )
+    console.log("fecha de nacimiento",empleado1.birthDate )
+    console.log("unidad de venta",empleado1.sdUnit )
+    console.log("area",empleado1.area )
 }
